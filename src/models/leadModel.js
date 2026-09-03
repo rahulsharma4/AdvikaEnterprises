@@ -55,7 +55,11 @@ const leadSchema = mongoose.Schema(
         'Meeting Done(Cold)',
         'Meeting Won',
         'Follow up Call',
-        'Lead Lost'
+        'Lead Lost',
+        'Voicemail',
+        'Phone call done',
+        'Quotation Sent',
+        'Prospect (70%)'
       ],
       default: 'Open(Not Assigned Yet)',
     },
