@@ -213,7 +213,8 @@ const updateQuotation = async (req, res) => {
       inverterHybrid, battery, batteryRemark,
       baseAmount, earlyBirdDiscount, additionalDiscount, gstPercentage,
       centralSubsidy, stateSubsidy, terms, bankDetails, loanDetails, validUntil,
-      isGstInclusive, billingName, pricingMode, customPrices
+      isGstInclusive, billingName, pricingMode, customPrices,
+      panelWarranty, inverterWarranty
     } = req.body;
 
     // Calculations
@@ -297,6 +298,8 @@ const updateQuotation = async (req, res) => {
     quotation.inverterHybrid = inverterHybrid || quotation.inverterHybrid;
     quotation.battery = battery || quotation.battery;
     quotation.batteryRemark = batteryRemark !== undefined ? batteryRemark : quotation.batteryRemark;
+    if (panelWarranty !== undefined) quotation.panelWarranty = panelWarranty;
+    if (inverterWarranty !== undefined) quotation.inverterWarranty = inverterWarranty;
 
     quotation.baseAmount = baseAmt;
     quotation.earlyBirdDiscount = earlyDisc;

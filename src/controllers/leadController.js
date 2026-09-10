@@ -224,6 +224,15 @@ const updateLead = async (req, res) => {
       const isNewFollowUp = req.body.followUpDate && req.body.followUpDate !== lead.followUpDate?.toISOString();
       if (isNewFollowUp) {
         lead.followUpNotified = false;
+        
+        // Add to history if status didn't change (status change block already adds history)
+        if (!(req.body.status && req.body.status !== lead.status)) {
+          lead.history.push({
+            status: lead.status,
+            comment: `Follow-up Scheduled: ${req.body.followUpRemarks || 'No remarks'}`,
+            updatedBy: req.user._id,
+          });
+        }
       }
 
       const updatedLead = await lead.save();

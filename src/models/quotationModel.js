@@ -84,6 +84,8 @@ const quotationSchema = mongoose.Schema(
     inverterHybrid: { type: String, default: 'No' },
     battery: { type: String, default: 'No' },
     batteryRemark: { type: String, default: '' },
+    panelWarranty: { type: String, default: '' },
+    inverterWarranty: { type: String, default: '' },
 
     // Pricing (from Image 1 & 2)
     baseAmount: { type: Number, required: true }, // Rooftop System Cost
