@@ -3,6 +3,8 @@ const router = express.Router();
 const { createQuotation, getQuotations, getQuotationById, updateQuotation, updateFulfillmentStatus, updateEmiStatus, deleteQuotation } = require('../controllers/quotationController');
 const { protect, admin } = require('../middleware/authMiddleware');
 
+router.get('/public/:id', getQuotationById);
+
 router.route('/').get(protect, getQuotations).post(protect, createQuotation);
 router.route('/:id')
   .get(protect, getQuotationById)
