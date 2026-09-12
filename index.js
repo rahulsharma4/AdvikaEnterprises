@@ -34,7 +34,12 @@ if (process.env.NODE_ENV === 'development') {
 
 // Serve static uploads
 const path = require('path');
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+const fs = require('fs');
+const uploadsDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true });
+}
+app.use('/uploads', express.static(uploadsDir));
 
 // Routes
 app.use('/api/auth', require('./src/routes/authRoutes'));
@@ -53,7 +58,7 @@ app.use('/api/upload', require('./src/routes/uploadRoutes'));
 
 
 app.get('/', (req, res) => {
-  res.send('Advika Enterprises CRM API is running...');
+  res.send('Bhaskar Power Solutions CRM API is running...');
 });
 
 const PORT = process.env.PORT || 5000;

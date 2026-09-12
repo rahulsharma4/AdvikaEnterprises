@@ -57,9 +57,9 @@ const cleanAndSeed = async () => {
     
     // Create new admin user
     const adminUser = new User({
-      name: process.env.ADMIN_NAME || 'Admin Advika',
-      email: process.env.ADMIN_EMAIL || 'admin@advienterprise.com',
-      phone: process.env.ADMIN_PHONE || '8073075608', // Admin contact
+      name: process.env.ADMIN_NAME || 'Bhaskar Power Admin',
+      email: process.env.ADMIN_EMAIL || 'bhaskarpoweruk@gmail.com',
+      phone: process.env.ADMIN_PHONE || '9410710758', // Admin contact
       password: process.env.ADMIN_PASSWORD || 'Admin@123', // Hashes automatically via userModel's pre-save middleware
       role: 'admin',
       status: 'active',
